@@ -10,21 +10,19 @@ import ffmpeg
 
 load_dotenv()
 
-# Load API keys from environment variables
 DEEPGRAM_API_KEY = os.getenv("DEEPGRAM_API_KEY")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-# Initialize OpenAI client
+
 client = AsyncOpenAI(api_key=OPENAI_API_KEY)
 
-# Audio recording parameters
 CHANNELS = 1
 FRAME_RATE = 16000
 CHUNK = 8000
 RECORDING_FILE = "recording.wav"
 CONVERTED_FILE = "converted.mp3"
 
-# Deepgram websocket URL
+
 DEEPGRAM_URL = f"wss://api.deepgram.com/v1/listen?encoding=linear16&sample_rate={FRAME_RATE}&channels={CHANNELS}&model=nova-2"
 
 STOP_COMMAND = "stop listening"
@@ -111,7 +109,7 @@ class VoiceAssistant:
         if hasattr(self, 'p'):
             self.p.terminate()
 
-# Example usage
+
 if __name__ == "__main__":
     assistant = VoiceAssistant()
     asyncio.run(assistant.run())
