@@ -1,0 +1,10 @@
+pyaudio
+websockets
+openai
+requests
+pydub
+python-dotenv
+
+# List your actual Python dependencies here
+speechrecognition
+ffmpeg-python
